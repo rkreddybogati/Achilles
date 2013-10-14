@@ -38,19 +38,19 @@
 <h1>
 <a name="presentation" class="anchor" href="#presentation"><span class="octicon octicon-link"></span></a>Presentation</h1>
 
-<p>Achilles is an open source Persistence Manager for Apache Cassandra. Among all the features:</p>
+<p>Achilles is an <strong>open source</strong> Persistence Manager for <strong>Apache Cassandra</strong>. Among all the features:</p>
 
 <ul>
-<li>2 implementations: Thrift &amp; CQL3</li>
-<li>Dirty check for simple and collection/map type properties</li>
-<li>Lazy loading</li>
-<li>Collections and map support</li>
-<li>Support for clustered entities in Thrift &amp; CQL3</li>
-<li>Support for compound primary key and composite partition key</li>
-<li>Advanced queries (slice, native or typed) in CQL3</li>
-<li>Support for counters</li>
-<li>Support for runtime setting of consistency level, ttl and timestamp</li>
-<li>Batch mode for atomic commits soon (atomicity only available for <strong>CQL3</strong> impl)</li>
+<li>Advance bean mapping (compound primary key, composite partition key, timeUUID...)</li>
+<li>Display of DML scripts &amp; DDL statements</li>
+<li>JUnit <a href="https://github.com/Rule" class="user-mention">@Rule</a> with embedded <strong>Cassandra</strong> server for productive development</li>
+<li>Native collections and map support</li>
+<li>Advanced queries (slice, native or typed)</li>
+<li>Native support for counters </li>
+<li>Runtime setting of consistency level, ttl and timestamp</li>
+<li>Batch mode for atomic commits in next major release (along side with migration to <strong>Cassandra 2.0</strong>)</li>
+<li>Dirty check and lazy loading</li>
+<li>And more to come ...</li>
 </ul><h1>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
 
@@ -61,16 +61,20 @@
 <pre><code>&lt;dependency&gt;    
     &lt;groupId&gt;info.archinnov&lt;/groupId&gt;
     &lt;artifactId&gt;achilles-cql&lt;/artifactId&gt;
-    &lt;version&gt;2.0.7&lt;/version&gt;
+    &lt;version&gt;2.0.8&lt;/version&gt;
 &lt;/dependency&gt;  
 </code></pre>
+
+<blockquote>
+<p><strong>Warning!!! The Thrift version is experimental and will be dropped in the next major release. Please migrate to CQL3</strong></p>
+</blockquote>
 
 <p>For <strong>Thrift</strong> version:</p>
 
 <pre><code>&lt;dependency&gt;    
     &lt;groupId&gt;info.archinnov&lt;/groupId&gt;
     &lt;artifactId&gt;achilles-thrift&lt;/artifactId&gt;
-    &lt;version&gt;2.0.7&lt;/version&gt;
+    &lt;version&gt;2.0.8&lt;/version&gt;
 &lt;/dependency&gt; 
 </code></pre>
 
@@ -81,7 +85,6 @@
 <li>cassandra-driver-core 1.0.2 for the <strong>CQL</strong> version</li>
 <li>hector-core 1.1-4 for the <strong>Thrift</strong> version</li>
 <li>CGLIB nodep 2.2.2 for proxy building</li>
-<li>hibernate-jpa-2.0-api 1.0.1.Final (no reference jar for JPA 2, only vendor specific ones are available)</li>
 <li>Jackson asl, mapper &amp; xc 1.9.3 </li>
 </ol><h1>
 <a name="5-minutes-tutorial" class="anchor" href="#5-minutes-tutorial"><span class="octicon octicon-link"></span></a>5 minutes tutorial</h1>
@@ -96,7 +99,7 @@
 <h1>
 <a name="advanced-tutorial" class="anchor" href="#advanced-tutorial"><span class="octicon octicon-link"></span></a>Advanced tutorial</h1>
 
-<p>To get a deeper look on how you can use <strong>Achilles Thrift version</strong>, check out the <strong><a href="https://github.com/doanduyhai/Achilles-Twitter-Demo">Twitter Demo</a></strong> application and read the <strong><a href="https://github.com/doanduyhai/Achilles/wiki/Advanced-Tutorial:-Twitter-Demo">Advanced Tutorial</a></strong> section</p>
+<p>To get a deeper look on how you can use <strong>Achilles</strong>, check out the <strong><a href="https://github.com/doanduyhai/Achilles-Twitter-Demo">Twitter Demo</a></strong> application and read the <strong><a href="https://github.com/doanduyhai/Achilles/wiki/Advanced-Tutorial:-Twitter-Demo">Advanced Tutorial</a></strong> section</p>
 
 <h1>
 <a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h1>
@@ -118,6 +121,18 @@
 <a name="changes-log" class="anchor" href="#changes-log"><span class="octicon octicon-link"></span></a>Changes log</h1>
 
 <ul>
+<li>
+<strong>2.0.8</strong>:
+
+<ul>
+<li>Provide an HTML client (AngularJS) for the Twitter Demo</li>
+<li>Fixes #34 When it is impossible to call a setter on an entity, Achilles should report a better error</li>
+<li>
+<strong>BREAKING CHANGE</strong> stop importing JPA jar. The number of annotations used (5) does not worth pulling JPA dependencies</li>
+<li>Add custom <strong>Jackson</strong> serializer &amp; deserializer on <code>Counter</code> interface to fix issue during serialization when <code>CounterImpl</code> is present</li>
+<li>Rework on <code>ResourceBuilder</code> for JUnit</li>
+</ul>
+</li>
 <li>
 <strong>2.0.7</strong>:
 
