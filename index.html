@@ -30,12 +30,10 @@
 
       </header>
       <section>
-	<br/><br/>
-        <p style="text-align:center"><img src="assets/Achilles_New_Logo.png" alt="Achilles logo"></p>
-	<p style="text-align:center">
-            <a href="https://travis-ci.org/doanduyhai/Achilles">
-	    <img src="https://travis-ci.org/doanduyhai/Achilles.png?branch=master" alt="Build Status"></a>
-	</p>
+        <p><img src="assets/Achilles_New_Logo.png" alt="Achilles logo"></p>
+
+<p><br>
+            <a href="https://travis-ci.org/doanduyhai/Achilles"><img src="https://travis-ci.org/doanduyhai/Achilles.png?branch=master" alt="Build Status"></a></p>
 
 <h1>
 <a name="presentation" class="anchor" href="#presentation"><span class="octicon octicon-link"></span></a>Presentation</h1>
@@ -63,7 +61,7 @@
 <pre><code>&lt;dependency&gt;    
     &lt;groupId&gt;info.archinnov&lt;/groupId&gt;
     &lt;artifactId&gt;achilles-cql&lt;/artifactId&gt;
-    &lt;version&gt;2.0.8&lt;/version&gt;
+    &lt;version&gt;2.0.9&lt;/version&gt;
 &lt;/dependency&gt;  
 </code></pre>
 
@@ -76,7 +74,7 @@
 <pre><code>&lt;dependency&gt;    
     &lt;groupId&gt;info.archinnov&lt;/groupId&gt;
     &lt;artifactId&gt;achilles-thrift&lt;/artifactId&gt;
-    &lt;version&gt;2.0.8&lt;/version&gt;
+    &lt;version&gt;2.0.9&lt;/version&gt;
 &lt;/dependency&gt; 
 </code></pre>
 
@@ -84,7 +82,7 @@
 
 <ol>
 <li>cassandra 1.2.8</li>
-<li>cassandra-driver-core 1.0.2 for the <strong>CQL</strong> version</li>
+<li>cassandra-driver-core 1.0.4 for the <strong>CQL</strong> version</li>
 <li>hector-core 1.1-4 for the <strong>Thrift</strong> version</li>
 <li>CGLIB nodep 2.2.2 for proxy building</li>
 <li>Jackson asl, mapper &amp; xc 1.9.3 </li>
@@ -109,6 +107,11 @@
 <p>All the documentation and tutorial is available in the <strong><a href="https://github.com/doanduyhai/Achilles/wiki">Wiki</a></strong></p>
 
 <h1>
+<a name="mailing-list" class="anchor" href="#mailing-list"><span class="octicon octicon-link"></span></a>Mailing list</h1>
+
+<p>For any question, bug encourered, you can use the <strong><a href="https://groups.google.com/forum/?hl=fr#!forum/cassandra-achilles">mailing list</a></strong> </p>
+
+<h1>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
 
 <p>Copyright 2012 DuyHai DOAN</p>
@@ -118,189 +121,6 @@
 <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
 
 <p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
-
-<h1>
-<a name="changes-log" class="anchor" href="#changes-log"><span class="octicon octicon-link"></span></a>Changes log</h1>
-
-<ul>
-<li>
-<strong>2.0.8</strong>:
-
-<ul>
-<li>Provide an HTML client (AngularJS) for the Twitter Demo</li>
-<li>Fixes #34 When it is impossible to call a setter on an entity, Achilles should report a better error</li>
-<li>
-<strong>BREAKING CHANGE</strong> stop importing JPA jar. The number of annotations used (5) does not worth pulling JPA dependencies</li>
-<li>Add custom <strong>Jackson</strong> serializer &amp; deserializer on <code>Counter</code> interface to fix issue during serialization when <code>CounterImpl</code> is present</li>
-<li>Rework on <code>ResourceBuilder</code> for JUnit</li>
-</ul>
-</li>
-<li>
-<strong>2.0.7</strong>:
-
-<ul>
-<li>
-<strong>BREAKING CHANGE</strong> Rename all xxEntityManagerxx to xxPersistenceManagerxx</li>
-<li>Fixes #30 Create partition row key</li>
-<li>
-<strong>BREAKING CHANGE</strong> Remove join feature. Is usage is not relevant enough in real use-cases</li>
-<li>Fixes #29 [All] Separate Achilles annotations and custom types in a dedicated <strong>achilles-model</strong> Maven module</li>
-<li>Allow injection of <strong>CQL3</strong> cluster and session object into <code>CQLEntityManagerFactory</code>
-</li>
-<li>Fixes #27 [CQL] Cannot map compound primary key from CQL resulset back to entity for typed queries</li>
-<li>Fixes #25 [CQL] Introduce new @TimeUUID annotation to translate into timeuuid in Cassandra enhancement</li>
-<li>Fix #26 Lift the constraint on mandatory "entityPackages" parameters and mandatory entity class to bootstrap Achilles in <strong>CQL3</strong>
-</li>
-<li>Fixes #13 Redesign collections &amp; map impl to match the one used in CQL3</li>
-<li>Add Eclipse cleanUp, codeTemplates and formatter for contributors</li>
-</ul>
-</li>
-<li>
-<strong>2.0.6</strong>:
-
-<ul>
-<li>Add cleaning of embedded Cassandra data files before launching the server in JUnit rule</li>
-<li>Upgrade to Hector 1.1-4 for Achilles Thrift</li>
-</ul>
-</li>
-<li>
-<strong>2.0.5</strong>:
-
-<ul>
-<li>Minor refactor for embedded Cassandra server and test resources</li>
-<li>Display bound values in DML debug messages for bound statements</li>
-<li>Introduce Options to simplify setting of TTL and Timestamp</li>
-<li>Force initialization of counter type when calling <code>initialize()</code>
-</li>
-<li>Bug with bi-directional relation with a cascade persist/merge and 'achilles.consistency.join.check' option set to true </li>
-</ul>
-</li>
-<li>
-<strong>2.0.4</strong>:
-
-<ul>
-<li>Migrate to Cassandra 1.2.8</li>
-<li>Fix NPE when no join entity in collection/map for CQL</li>
-<li>Remove Cassandra Unit library to avoid dependency on Hector for CQL version</li>
-<li>Add Cassandra Embedded server. Add JUnit rule to bootstrap Cassandra embedded server and Achilles together</li>
-</ul>
-</li>
-<li>
-<strong>2.0.3</strong>:
-
-<ul>
-<li>Fix buggy implementation of FactoryBean for Spring integration</li>
-<li>Fix bug in decoding enums for Slice Queries </li>
-</ul>
-</li>
-<li>
-<strong>2.0.2</strong>:
-
-<ul>
-<li>Internal refactoring of PropertyMeta</li>
-<li>Support for value-less entities</li>
-<li>Remove <code>@CompoundKey</code> annotation, un-used</li>
-</ul>
-</li>
-<li>
-<strong>2.0.1</strong>:
-
-<ul>
-<li>Add Spring Integration for CQL </li>
-<li>Add new parameters for <strong>CQLEntityManagerFactory</strong>
-</li>
-<li>Enhance <strong>SliceQueryBuilder</strong> API</li>
-<li>Fix bug on Thrift clustered entity validation</li>
-<li>Fix small bug on CQL RawTyped queries</li>
-</ul>
-</li>
-<li>
-<strong>2.0.0</strong>:
-
-<ul>
-<li>
-<strong>Official support for CQL3</strong>. See docs for more details<br>
-</li>
-<li>Remove custom <code>Pair</code> type, use the one provided by Cassandra</li>
-<li>Fixes bug during entities parsing when List/Set/Map have parameterized typse</li>
-<li>Add <code>removeById()</code> to EntityManager to avoid read-before-write pattern</li>
-<li>
-<strong>BREAKING CHANGE</strong>, removal of <code>WideMap&lt;K,V&gt;</code> structure because its use cases are not consistent</li>
-<li>Add DML logs to display CQL statements at runtime</li>
-<li>Serialize <strong>enum</strong> types using name()</li>
-<li>
-<strong>BREAKING CHANGE</strong>, removal of <code>@WideRow</code> annotation, replaced by clustered entities and slice queries for getting data (see doc for more details) . </li>
-</ul>
-</li>
-<li>
-<strong>1.8.2</strong>:
-
-<ul>
-<li>Support immutability for <code>@CompoundKey</code> classes (Issue #5). See <a href="https://github.com/doanduyhai/Achilles/issues/5#issuecomment-19882998">https://github.com/doanduyhai/Achilles/issues/5#issuecomment-19882998</a> for more details on new syntax</li>
-<li>
-<strong>BREAKING CHANGE</strong>, for <code>@CompoundKey</code>, enum types are serialized as String instead of Object (Issue #8)</li>
-<li>
-<strong>BREAKING CHANGE</strong>, replace <code>@Key(order=1)</code> by <code>@Order(1)</code> annotation (Issue #6)</li>
-<li>Throw Exception instead of having NPE when keyspace is not created in Cassandra (Issue #10)</li>
-<li>
-<strong>BREAKING CHANGE</strong>, replace <code>MultiKey</code>interface by <code>@CompoundKey</code> annotation (Issue #15)</li>
-<li>It is no longer required to implements <code>Serializable</code>on all entities (Issue #11)</li>
-<li>Enforce consistency im ThriftImpl on <code>persist()</code> by removing all row data first (Issue #14 &amp; Issue #7)</li>
-<li>Add timestamp meta data to <code>KeyValye&lt;K,V&gt;</code> type (Issue #9)</li>
-<li>Add initAndUnwrap() shortcut to EntityManager (Issue #2)</li>
-<li>Fix bug on dirty check on join collection/map</li>
-</ul>
-</li>
-<li>
-<p><strong>1.8.1</strong>:</p>
-
-<ul>
-<li>Add TTL to persist and merge operations</li>
-<li>Rework of runtime consistency level</li>
-<li>Fix small bug in the Column Family comment for wide rows</li>
-<li>
-<strong>BREAKING CHANGES</strong> simplify PropertyType byte flag for Thrift persistence layer. <strong>Need data migration</strong>
-</li>
-<li>Rename 'unproxy' to 'unwrap'</li>
-<li>Fix bug with cyclic join entities during merge and persist operations</li>
-<li>Fix buggy property removal after merging</li>
-<li>Ignore un-mapped properties instead of raising exception</li>
-<li>Renamming in core package</li>
-<li>Upgrade to Cassandra 1.2.4</li>
-</ul>
-</li>
-<li>
-<p><strong>1.8.0</strong>:</p>
-
-<ul>
-<li>Use the <code>org.reflections.reflections</code> package for entity parsing</li>
-<li>Split the project into 3 modules: <code>core</code>, <code>thrift</code> and <code>cql</code>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>1.7.3</strong>:</p>
-
-<ul>
-<li>Rework of em.getReference() to avoid hitting the database</li>
-<li>Refactor generics</li>
-<li>Migrate to JPA 2</li>
-</ul>
-</li>
-<li>
-<p><strong>1.7.2</strong>:</p>
-
-<ul>
-<li>Add commons-collections 3.2.1 to compile dependency</li>
-<li>Enhance error message for entity mapping</li>
-<li>Fix bug about default consistency level hard-coded to QUORUM for WideMap and Counters </li>
-<li>Add <code>firstFirstMatching()</code> and <code>findLastMatching()</code> to the WideMap API</li>
-<li>Fix bug. Do not load join entity if no join primary keys</li>
-</ul>
-</li>
-<li><p><strong>1.7.1</strong>: fix bug because key validation class &amp; comparator type has changed from Cassandra 1.1 to 1.</p></li>
-<li><p><strong>1.7</strong>: stable release</p></li>
-</ul>
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
