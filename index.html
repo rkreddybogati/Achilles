@@ -35,9 +35,6 @@
 <p><br>
             <a href="https://travis-ci.org/doanduyhai/Achilles"><img src="https://travis-ci.org/doanduyhai/Achilles.png?branch=master" alt="Build Status"></a></p>
 
-<h1>
-<a name="presentation" class="anchor" href="#presentation"><span class="octicon octicon-link"></span></a>Presentation</h1>
-
 <p>Achilles is an <strong>open source</strong> Persistence Manager for <strong>Apache Cassandra</strong>. Among all the features:</p>
 
 <ul>
@@ -48,42 +45,26 @@
 <li>Advanced queries (slice, native or typed)</li>
 <li>Native support for counters </li>
 <li>Runtime setting of consistency level, ttl and timestamp</li>
-<li>Batch mode for atomic commits in next major release (along side with migration to <strong>Cassandra 2.0</strong>)</li>
-<li>Dirty check and lazy loading</li>
-<li>And more to come ...</li>
-</ul><h1>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
+<li>Batch mode for atomic commits</li>
+<li>Dirty check </li>
+<li>All new <strong>Cassandra 2.0</strong> features</li>
+</ul><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <p>To use <strong>Achilles</strong>, just add the following dependency in your <strong>pom.xml</strong>:</p>
 
-<p>For <strong>CQL</strong> version:</p>
-
-<pre><code>&lt;dependency&gt;    
-    &lt;groupId&gt;info.archinnov&lt;/groupId&gt;
-    &lt;artifactId&gt;achilles-cql&lt;/artifactId&gt;
-    &lt;version&gt;2.0.9&lt;/version&gt;
-&lt;/dependency&gt;  
-</code></pre>
-
-<blockquote>
-<p><strong>Warning!!! The Thrift version is experimental and will be dropped in the next major release. Please migrate to CQL3</strong></p>
-</blockquote>
-
-<p>For <strong>Thrift</strong> version:</p>
-
-<pre><code>&lt;dependency&gt;    
-    &lt;groupId&gt;info.archinnov&lt;/groupId&gt;
-    &lt;artifactId&gt;achilles-thrift&lt;/artifactId&gt;
-    &lt;version&gt;2.0.9&lt;/version&gt;
-&lt;/dependency&gt; 
-</code></pre>
+<div class="highlight highlight-xml"><pre>    <span class="nt">&lt;dependency&gt;</span>    
+        <span class="nt">&lt;groupId&gt;</span>info.archinnov<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>achilles-core<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>3.0.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
 
 <p>For now, <strong>Achilles</strong> depends on the following libraries:</p>
 
 <ol>
-<li>cassandra 1.2.8</li>
-<li>cassandra-driver-core 1.0.4 for the <strong>CQL</strong> version</li>
-<li>hector-core 1.1-4 for the <strong>Thrift</strong> version</li>
+<li>cassandra 2.0.3</li>
+<li>cassandra-driver-core 2.0.0-rc2</li>
 <li>CGLIB nodep 2.2.2 for proxy building</li>
 <li>Jackson asl, mapper &amp; xc 1.9.3 </li>
 </ol><h1>
@@ -123,7 +104,7 @@
 <p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
       </section>
       <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
