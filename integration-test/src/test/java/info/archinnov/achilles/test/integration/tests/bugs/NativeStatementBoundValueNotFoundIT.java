@@ -33,7 +33,7 @@ public class NativeStatementBoundValueNotFoundIT {
         ValuelessEntity entity = new ValuelessEntity(123L);
         batch.insert(entity);
 
-        batch.endBatch();
+        batch.flushBatch();
     }
 
 }
